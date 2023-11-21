@@ -10,6 +10,15 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/api/v1/', router)
+
+app.get('/', (req, res) => {
+    try {
+        console.log('Hello World')
+    } catch (error) {
+        Sentry.captureException(error);
+    }
+})
+
 initSentry(process.env.SENTRY_DSN)
 
 app.listen(port, () => {

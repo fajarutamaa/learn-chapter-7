@@ -5,13 +5,6 @@ const authRoute = require('../routes/auth/auth.route')
 
 
 router.use(morgan('dev'))
-app.get('/', (req, res) => {
-    try {
-      console.log('Hello World')
-    } catch (error) {
-      Sentry.captureException(error);
-    }
-  })
 router.use('/auth', authRoute)
 
 module.exports = router
