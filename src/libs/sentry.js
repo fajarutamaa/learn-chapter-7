@@ -6,7 +6,7 @@ function initSentry(dsn) {
         dsn,
         integrations: [
             new Sentry.Integrations.Http({ tracing: true }),
-            new Sentry.Integrations.Express({ app }),
+            new Sentry.Integrations.Express({ app: express() }),
             new ProfilingIntegration(),
         ],
         tracesSampleRate: 1.0,
