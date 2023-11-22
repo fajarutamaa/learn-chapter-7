@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const router = require('./src/routes/route')
 const { iinitializeSentry } = require('./src/libs/sentry')
+const Sentry = require("@sentry/node");
 require('dotenv').config()
 
 const port = process.env.PORT || 3000
