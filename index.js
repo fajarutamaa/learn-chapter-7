@@ -15,7 +15,10 @@ app.use('/api/v1/', router)
 Sentry.init({
     dsn: process.env.SENTRY_DSN,
     tracesSampleRate: 1.0,
-});
+})
+
+app.use(Sentry.Handlers.requestHandler())
+app.use(Sentry.Handlers.errorHandler())
 
 app.listen(port, () => {
     console.log(`Server is running on port : ${port}`)
