@@ -17,7 +17,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js && npm run sentry:sourcemaps",
+    "dev": "nodemon src/index.js && npm run sentry:sourcemaps",
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org binar-academy-kx --project node-express ./ && sentry-cli sourcemaps upload --org binar-academy-kx --project node-express ./"
   },
   "author": "Fajar Dwi Utomo",

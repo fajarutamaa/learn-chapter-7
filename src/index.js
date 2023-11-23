@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-const router = require('./src/routes/route')
-const { iinitializeSentry } = require('./src/libs/sentry')
+const router = require('./routes/route')
 const Sentry = require("@sentry/node");
 require('dotenv').config()
 
 const port = process.env.PORT || 3000
+const sentryDsn = process.env.SENTRY_DSN
 
 
 app.use(express.json())
@@ -14,7 +14,7 @@ app.use('/api/v1/', router)
 
 
 Sentry.init({
-    dsn: process.env.SENTRY_DSN,
+    dsn: sentryDsn,
     tracesSampleRate: 1.0,
 })
 

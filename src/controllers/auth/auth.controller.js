@@ -1,5 +1,6 @@
 const { ComparePassword, HashPassword } = require('../../helpers/pass.helper')
 const { ResponseTemplate } = require('../../helpers/resp.helper')
+const Sentry = require('@sentry/node')
 const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient
@@ -44,6 +45,7 @@ async function Register(req, res, next) {
         return res.status(200).json(response)
 
     } catch (error) {
+        Sentry.captureExceprion(error)
         next(error)
     }
 }
@@ -80,6 +82,7 @@ async function Login(req, res, next) {
         return
 
     } catch (error) {
+        Sentry.captureExceprion(error)
         next(error)
     }
 }
