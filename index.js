@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const router = require('./routes/route')
+const router = require('./src/routes/route')
 const Sentry = require("@sentry/node");
 require('dotenv').config()
 

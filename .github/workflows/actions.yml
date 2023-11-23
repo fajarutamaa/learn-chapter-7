@@ -24,5 +24,4 @@ jobs:
       - name: Verify Bats Version
         run: bats -v
 
-     start:
-      command: "node src/index.js"
+      
